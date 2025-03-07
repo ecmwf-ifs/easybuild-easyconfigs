@@ -1,0 +1,26 @@
+easyblock = 'EcbuildMake'
+
+name = 'fiat_ecmwf'
+version = '1.4.0'
+
+homepage = 'https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home'
+description = """ecCodes is a package developed by ECMWF which provides an application programming interface and
+ a set of tools for decoding and encoding messages in the following formats: WMO FM-92 GRIB edition 1 and edition 2,
+ WMO FM-94 BUFR edition 3 and edition 4, WMO GTS abbreviated header (only decoding)."""
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+# compatible GCC version : 13.3.0
+
+source_urls = ['https://github.com/ecmwf-ifs/fiat/archive/refs/tags/']
+sources = ['%(version)s.tar.gz']
+checksums = ['5dc5a8bcac5463690529d0d96d2c805cf9c0214d125cd483ee69d36995ff15d3']
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5'),
+]
+
+dependencies = [
+]
+
+moduleclass = 'tools'
