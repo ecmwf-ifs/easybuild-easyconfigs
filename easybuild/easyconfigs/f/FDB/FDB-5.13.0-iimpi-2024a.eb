@@ -1,0 +1,34 @@
+easyblock = 'EcbuildMake'
+
+name = 'FDB'
+version = '5.13.0'
+
+homepage = ' ... '
+description = """fdb5 is the best thing this side of fdb4 """
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+
+sources = [{
+    'filename': 'fdb5_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/mars',
+        'repo_name': 'fdb5',
+        'tag': '%(version)s',
+    },
+}]
+checksums = ['03af73fc4328f6bc67cb5b6f586b1a15c636a085182934ed94352f8bd03d18dd']
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+    ('ncurses', '6.5'),
+]
+
+dependencies = [
+    ('eckit', '1.28.0'),
+    ('metkit', '1.11.19'),
+]
+
+configopts = "-DENABLE_FDB_REMOTE=OFF -DENABLE_FDB_TOOLS=OFF "
+
+moduleclass = 'phys'

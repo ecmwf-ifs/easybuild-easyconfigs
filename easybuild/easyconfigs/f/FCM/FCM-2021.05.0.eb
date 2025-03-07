@@ -1,0 +1,27 @@
+##
+# Author:    Robert Mijakovic <robert.mijakovic@lxp.lu>
+##
+easyblock = 'Tarball'
+
+name = 'FCM'
+version = '2021.05.0'
+
+homepage = 'https://github.com/metomi/fcm'
+description = "Fortran Build Systen"
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/metomi/fcm/archive/refs/tags/']
+sources = ['%(version)s.tar.gz']
+checksums = ['b4178b488470aa391f29b46d19bd6395ace42ea06cb9678cabbd4604b46f56cd']
+
+sanity_check_paths = {
+    'files': ['bin/fcm'],
+    'dirs': ['bin', 'lib']
+}
+
+modextravars = {
+    'FCM_EXECUTABLE': '%(installdir)s/bin/fcm',
+}
+
+moduleclass = 'devel'
