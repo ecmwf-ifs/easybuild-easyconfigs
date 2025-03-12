@@ -1,0 +1,32 @@
+easyblock = 'EcbuildMake'
+
+name = 'loki_ecmwf'
+version = '0.3.0'
+
+homepage = 'https://github.com/ecmwf-ifs/loki'
+description = """without it, no future ..."""
+
+toolchain = {'name': 'GCCcore', 'version': '13.3.0'}
+
+sources = [{
+    'filename': 'loki_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'https://git@github.com/ecmwf-ifs',
+        'repo_name': 'loki',
+        'tag': '%(version)s',
+    },
+}]
+checksums = ['f3be0a91dbd85048719bef6fb80e6544fa6341aa15922e7ad39df909db6b1925']
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5'),
+]
+
+dependencies = [
+    ('Python', '3.11.5'),
+]
+
+configopts = "-DENABLE_TESTS=OFF -DENABLE_CLAW=OFF -DPython3_EXECUTABLE=$EBROOTPYTHON/bin/python3 "
+
+moduleclass = 'compiler'
