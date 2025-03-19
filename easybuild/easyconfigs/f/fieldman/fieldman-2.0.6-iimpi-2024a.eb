@@ -1,0 +1,32 @@
+easyblock = 'EcbuildMake'
+
+name = 'fieldman'
+version = '2.0.6'
+
+homepage = ' ... '
+description = """Do you need the man pages for fields? Then fieldman is your friend """
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+
+sources = [{
+    'filename': 'fieldman_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/camsprod',
+        'repo_name': 'fieldman',
+        'tag': '%(version)s',
+    },
+}]
+checksums = ['fcd0efbdcd367fb0804f6406828be8b39e837b6b2397304fdcc0b43129ae7168']
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5'),
+    ('netCDF', '4.9.2'),
+    ]
+
+
+dependencies = [
+    ('ecCodes', '2.36.3'),
+]
+
+moduleclass = 'phys'
