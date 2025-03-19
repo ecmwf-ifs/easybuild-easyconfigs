@@ -1,0 +1,15 @@
+--- cmake/atlas-import.cmake.in.orig	2024-01-23 14:30:51.233203308 +0000
++++ cmake/atlas-import.cmake.in	2024-01-23 14:33:39.480957947 +0000
+@@ -23,6 +23,12 @@
+ endif()
+ 
+ find_dependency( atlas_io HINTS ${CMAKE_CURRENT_LIST_DIR}/../atlas_io @atlas_io_DIR@ @atlas_io_BINARY_DIR@ )
++if( TARGET atlas_io )
++  if( NOT atlas_FOUND AND atlas_NOT_FOUND_MESSAGE STREQUAL "The following imported targets are referenced, but are missing:  atlas_io")
++    unset(atlas_NOT_FOUND_MESSAGE)
++    unset(atlas_FOUND)
++  endif()
++endif()
+ find_dependency( hic HINTS ${CMAKE_CURRENT_LIST_DIR}/../hic @hic_DIR@ @hic_BINARY_DIR@ )
+ 
+ ## Eigen3

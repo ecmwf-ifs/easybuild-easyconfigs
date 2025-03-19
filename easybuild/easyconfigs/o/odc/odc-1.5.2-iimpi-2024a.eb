@@ -1,0 +1,42 @@
+easyblock = 'EcbuildMake'
+
+name = 'odc'
+version = '1.5.2'
+
+homepage = ' ...'
+description = """odc is odb>>1"""
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+
+sources = [{
+    'filename': 'odc_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/odb',
+        'repo_name': 'odc',
+        'tag': '%(version)s',
+    },
+}]
+patches = [
+    ('%(name)s-%(version)s_odcmod.patch', 0),
+]
+checksums = [
+    {'odc_1.5.2.tar.gz': 'e0029ec4d6a0e193e83b0682c09992e1f14c6459793bfaf12b2e6bb31b76965e'},
+    {'odc-1.5.2_odcmod.patch': '7b4917bde61303213cd04f940f34a486950a3519ae6efae2c3016aa1a04e0545'},
+]
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5'),
+]
+
+dependencies = [
+    ('eckit', '1.28.0'),
+]
+
+
+modextravars = {
+    'ODC_INCLUDE_DIRS': '%(installdir)s/include',
+    'ODC_LIBRARIES': 'odccore;fodc;odctools;odctest;odc_fortran',
+}
+
+moduleclass = 'phys'
