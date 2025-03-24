@@ -1,0 +1,34 @@
+easyblock = 'EcbuildMake'
+
+name = 'multio'
+version = '2.2.2'
+
+homepage = 'https://software.ecmwf.int/wiki/display/FCKIT'
+description = """fcKit is a fortran interface to a subsection of ecKit ..."""
+
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
+
+sources = [{
+    'filename': 'multio%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/mars',
+        'repo_name': 'multio',
+        'tag': '%(version)s',
+    },
+}]
+checksums = ['d9dd084a67a9283c2cf5dfc44f7964c453c398c42ffbb1a8dadfc9635c3916c0']
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+]
+
+dependencies = [
+    ('metkit', '1.11.19'),
+    ('FDB', '5.13.0'),
+    ('atlas_ecmwf', '0.39.0'),
+]
+
+configopts = ""
+
+moduleclass = 'phys'
