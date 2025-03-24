@@ -1,0 +1,9 @@
+--- src/eckit/cmd/CMakeLists.txt	2023-03-17 09:41:19.000000000 +0000
++++ src/eckit/cmd/CMakeLists.txt	2023-03-17 09:46:15.000000000 +0000
+@@ -86,5 +86,4 @@
+                      SOURCES            ${eckit_cmd_srcs}
+                      HEADER_DESTINATION ${INSTALL_INCLUDE_DIR}/eckit/cmd
+                      PRIVATE_INCLUDES   ${CURSES_INCLUDE_DIR}
+-                     PRIVATE_LIBS       ${CURSES_LIBRARIES}
+-                     PUBLIC_LIBS        eckit )
++                     PUBLIC_LIBS        eckit ${CURSES_LIBRARIES})

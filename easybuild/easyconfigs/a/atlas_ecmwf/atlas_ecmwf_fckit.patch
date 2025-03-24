@@ -1,0 +1,23 @@
+diff -ruN atlas/src/atlas_f/CMakeLists.txt atlas-patched/src/atlas_f/CMakeLists.txt
+--- atlas/src/atlas_f/CMakeLists.txt	2025-01-30 18:02:22.000000000 +0000
++++ atlas-patched/src/atlas_f/CMakeLists.txt	2025-02-14 14:51:54.535918038 +0000
+@@ -289,4 +289,7 @@
+   DEPENDS
+     ${CMAKE_CURRENT_SOURCE_DIR}/atlas_f.h.in
+     ${CMAKE_CURRENT_SOURCE_DIR}/atlas_f.fypp
+-    ${CMAKE_CURRENT_SOURCE_DIR}/internals/atlas_generics.fypp )
++    ${CMAKE_CURRENT_SOURCE_DIR}/internals/atlas_generics.fypp 
++  INCLUDEDIRS
++    ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_BINARY_DIR}/src
++    )
+diff -ruN atlas/src/tests/runtime/CMakeLists.txt atlas-patched/src/tests/runtime/CMakeLists.txt
+--- atlas/src/tests/runtime/CMakeLists.txt	2025-01-30 18:02:22.000000000 +0000
++++ atlas-patched/src/tests/runtime/CMakeLists.txt	2025-02-14 14:26:55.944021353 +0000
+@@ -28,6 +28,7 @@
+   LINKER_LANGUAGE Fortran
+   LIBS        atlas_f ${OMP_Fortran}
+   ENVIRONMENT ${ATLAS_TEST_ENVIRONMENT} ATLAS_TRACE_REPORT=1
++  INCLUDEDIRS ${CMAKE_BINARY_DIR}/src
+ )
+ 
+ endif()

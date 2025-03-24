@@ -1,0 +1,49 @@
+easyblock = 'EcbuildMake'
+
+name = 'atlas_ecmwf'
+version = '0.39.0'
+
+homepage = 'https://confluence.ecmwf.int/display/ATLAS'
+description = """Atlas is a ECMWF library for parallel data-structures supporting 
+unstructured grids and function spaces, with the aim to investigate alternative 
+more scalable dynamical core options for Earth System models, and to support modern 
+interpolation and product generation software"""
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+
+sources = [{
+    'filename': 'atlas_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'https://github.com/ecmwf',
+        'repo_name': 'atlas',
+        'tag': '%(version)s',
+    },
+}]
+patches = [
+    ('atlas_ecmwf-%(version)s_atlasio.patch', 0),
+    ('atlas_ecmwf_fckit.patch', 1),
+]
+checksums = [
+    {'atlas_0.39.0.tar.gz': 'bd580da6d312654c241a8c985754e7948f5cab01aabb309777a43164e9c0b1d7'},
+    {'atlas_ecmwf-0.39.0_atlasio.patch': '1dec01ec37a80a0dcd7cc18b35fbf7f52be287c6e1fb5ee8d41ed5766f2b16c6'},
+    {'atlas_ecmwf_fckit.patch': 'e65b402a86b9e5e2422d1a50fc98a848bb9d5bfabe8fee17e7c50fcb9f827cd6'},
+]
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+    ('Python', '3.11.5'),
+]
+
+dependencies = [
+    ('eckit', '1.28.0'),
+    ('fckit', '0.13.2'),
+    ('Python', '3.11.5'),
+    ('Qhull', '2020.2'),
+]
+
+configopts = "-DENABLE_OMP=ON -DENABLE_TESSELATION=ON "
+configopts += "-DENABLLE_ECTRANS=OFF -DENABLE_CLANG_TIDY=OFF "
+configopts += "-DENABLE_GRIDTOOLS_STORAGE=OFF -DENABLE_ACC=OFF -DENABLE_CUDA=OFF "
+
+moduleclass = 'numlib'

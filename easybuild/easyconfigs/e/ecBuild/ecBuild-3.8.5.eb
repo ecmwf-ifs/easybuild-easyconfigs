@@ -1,0 +1,44 @@
+easyblock = 'Tarball'
+
+name = 'ecBuild'
+version = '3.8.5'
+
+homepage = 'https://github.com/ecmwf/ecbuild'
+
+description = """
+ ecbuild, the ECMWF-specific CMake obfuscation.  
+"""
+
+toolchain = SYSTEM
+
+github_account = 'ecmwf'
+sources = [
+    {
+        'source_urls': [GITHUB_SOURCE],
+        'filename': '%(version)s.tar.gz',
+        'extract_cmd': 'tar -xzf %s --strip-components=1',
+    },
+]
+checksums = ['aa0c44cab0fffec4c0b3542e91ebcc736b3d41b68a068d30c023ec0df5f93425']
+
+buildininstalldir = True
+
+skipsteps = ['install']
+
+sanity_check_paths = {
+    'files': ['bin/ecbuild', 'cmake/ecbuild-config.cmake'],
+    'dirs': ['bin', 'lib', 'share', 'cmake'],
+}
+
+modextrapaths = {
+    'PATH': 'bin',
+}
+
+modextravars = {
+    'ecbuild_DIR': '%(installdir)s',
+    'ECBUILD_DIR': '%(installdir)s',
+    'ECBUILD_VERSION': '%(version)s',
+}
+
+
+moduleclass = 'tools'

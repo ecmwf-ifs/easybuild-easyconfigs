@@ -1,0 +1,30 @@
+easyblock = 'EcbuildMake'
+
+name = 'ecflow-light'
+version = '1.0.2'
+
+homepage = ''
+description = """ecflow, but lighter ..."""
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+
+sources = [{
+    'filename': 'ecflow-light_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/ecflow',
+        'repo_name': 'ecflow-light',
+        'tag': '%(version)s',
+    },
+}]
+checksums = ['e923deb08e8486d4ab72de7b0a0f06251cf15f22fa68c34321fa93e2b3332d63']
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+]
+
+dependencies = [
+    ('eckit', '1.28.0'),
+]
+
+moduleclass = 'tools'

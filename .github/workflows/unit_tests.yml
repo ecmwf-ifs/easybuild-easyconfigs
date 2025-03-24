@@ -60,7 +60,9 @@ jobs:
           cd easybuild-framework; git log -n 1; cd -
           pip install $PWD/easybuild-framework
 
-          git clone -b $BRANCH --depth 10 --single-branch https://github.com/easybuilders/easybuild-easyblocks.git
+          BRANCH=develop;
+          #git clone -b $BRANCH --depth 10 --single-branch https://github.com/easybuilders/easybuild-easyblocks.git
+          git clone -b $BRANCH --depth 10 --single-branch https://github.com/ecmwf-ifs/easybuild-easyblocks.git
           cd easybuild-easyblocks; git log -n 1; cd -
           pip install $PWD/easybuild-easyblocks
 

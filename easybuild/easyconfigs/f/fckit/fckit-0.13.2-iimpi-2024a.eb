@@ -1,0 +1,40 @@
+easyblock = 'EcbuildMake'
+
+name = 'fckit'
+version = '0.13.2'
+
+homepage = 'https://software.ecmwf.int/wiki/display/FCKIT'
+description = """fcKit is a fortran interface to a subsection of ecKit ..."""
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+
+sources = [{
+    'filename': 'fckit_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/ecsdk',
+        'repo_name': 'fckit',
+        'tag': '%(version)s',
+    },
+}]
+patches = [
+    ('fckit_fypp.patch', 1),
+]
+checksums = [
+    {'fckit_0.13.2.tar.gz': 'f826803d1f168869ec7c4a64155928215b54b2706a0de1caf9991a473ec5cce4'},
+    {'fckit_fypp.patch': 'b94bcc27582981c22772546ea89f8c03850bd369c52fd88cdff2521040745533'},
+]
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+]
+
+dependencies = [
+    ('eckit', '1.28.0'),
+    ('Python', '3.11.5'),
+]
+
+configopts = "-DENABLE_FINAL=OFF "
+configopts += "-DENABLE_FCKIT_VENV=ON "
+
+moduleclass = 'tools'
