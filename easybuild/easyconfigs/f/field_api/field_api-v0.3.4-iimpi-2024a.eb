@@ -15,8 +15,8 @@ checksums = ['b77c1bcde4282091dbf853312931353390a73dbb83c191219e877168269e7363']
 
 
 builddependencies = [
-    ('ecBuild', '3.8.5'),
     ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
 ]
 
 dependencies = [
@@ -32,6 +32,5 @@ sanity_check_paths = {
     'files': ["lib/libfield_api_sp.so"],
     'dirs': [],
 }
-
 
 moduleclass = 'phys'

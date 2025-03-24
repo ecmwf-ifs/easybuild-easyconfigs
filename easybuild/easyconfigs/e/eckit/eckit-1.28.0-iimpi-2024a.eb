@@ -7,7 +7,7 @@ homepage = 'https://software.ecmwf.int/wiki/display/ECKIT'
 description = """ecKit is a cross-platform c++ toolkit that supports development of tools and applications at ECMWF. 
 It is based on code developed over the last 20 years within the MARS software and was re-factored out to be reused 
 by other applications. 
-It provides a an abstraction layer on top of the operating system, so it is easier to port code to new architectures. 
+It provides an abstraction layer on top of the operating system, so it is easier to port code to new architectures. 
 It is developed taking into account the robustness requirements of running production systems at ECMWF. 
 The main focus is UNIX/POSIX systems, and it has been thoroughly tested on AIX, Linux and Mac OSX. 
 Historically, the code base pre-dates and in some way can be seen as a leaner substitute for some 'Boost' libraries."""
@@ -32,7 +32,7 @@ checksums = [
 
 builddependencies = [
     ('CMake', '3.29.3'),
-    ('ecBuild', '3.8.5'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
 ]
 
 dependencies = [

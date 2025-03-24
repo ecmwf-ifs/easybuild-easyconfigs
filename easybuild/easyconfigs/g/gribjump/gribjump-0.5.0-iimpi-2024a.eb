@@ -22,7 +22,7 @@ builddependencies = [
     ('CMake', '3.29.3'),
     ('ecBuild', '3.8.5'),
     ('metkit', '1.11.19'),
-    ]
+]
 
 dependencies = [
     ('ecCodes', '2.36.3'),

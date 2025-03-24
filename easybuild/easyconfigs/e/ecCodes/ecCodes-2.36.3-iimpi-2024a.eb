@@ -15,10 +15,9 @@ source_urls = ['https://github.com/ecmwf/eccodes/archive/refs/tags/']
 sources = ['%(version)s.tar.gz']
 checksums = ['2f9eb83ebdb0bf490b183bcaa861073c8a5f6f682baf190a1e4888ecaf4c0d4b']
 
-
 builddependencies = [
+    ('CMake', '3.29.3'),
     ('ecBuild', '3.8.5', '', SYSTEM),
-    ('CMake', '3.29.3')
 ]
 
 dependencies = [
