@@ -1,0 +1,35 @@
+easyblock = 'EcbuildMake'
+
+name = 'field_api'
+version = 'v0.3.4'
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
+
+source_urls = ['https://github.com/ecmwf-ifs/field_api/archive/refs/tags/']
+sources = ['%(version)s.tar.gz']
+checksums = ['b77c1bcde4282091dbf853312931353390a73dbb83c191219e877168269e7363']
+
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+]
+
+dependencies = [
+    ('fiat_ecmwf', '1.4.0'),
+    ('fckit', '0.13.2'),
+]
+
+configopts = "-DENABLE_ACC=OFF -DENABLE_CUDA=OFF "
+
+
+# field_api does not install a bin folder, so override default sanity check
+sanity_check_paths = {
+    'files': ["lib/libfield_api_sp.so"],
+    'dirs': [],
+}
+
+moduleclass = 'phys'
