@@ -9,7 +9,7 @@ unstructured grids and function spaces, with the aim to investigate alternative
 more scalable dynamical core options for Earth System models, and to support modern 
 interpolation and product generation software"""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 sources = [{
     'filename': 'atlas_%(version)s.tar.gz',

@@ -6,7 +6,7 @@ version = '1.11.19'
 homepage = 'https://software.ecmwf.int/wiki/display/metCKIT'
 description = """metKit is ..."""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 sources = [{
     'filename': 'metkit_%(version)s.tar.gz',

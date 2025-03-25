@@ -3,11 +3,10 @@ easyblock = 'EcbuildMake'
 name = 'field_api'
 version = 'v0.3.4'
 
-homepage = 'https://github.com/ecmwf-ifs/field_api/'
-description = """  """
+homepage = ''
+description = """"""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
-# compatible GCC version : 13.3.0
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 source_urls = ['https://github.com/ecmwf-ifs/field_api/archive/refs/tags/']
 sources = ['%(version)s.tar.gz']

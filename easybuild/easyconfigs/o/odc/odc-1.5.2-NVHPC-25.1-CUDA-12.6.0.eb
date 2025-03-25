@@ -6,7 +6,7 @@ version = '1.5.2'
 homepage = ' ...'
 description = """odc is odb>>1"""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 sources = [{
     'filename': 'odc_%(version)s.tar.gz',

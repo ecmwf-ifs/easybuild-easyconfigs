@@ -6,7 +6,7 @@ version = '2.0.6'
 homepage = ' ... '
 description = """Do you need the man pages for fields? Then fieldman is your friend """
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 sources = [{
     'filename': 'fieldman_%(version)s.tar.gz',

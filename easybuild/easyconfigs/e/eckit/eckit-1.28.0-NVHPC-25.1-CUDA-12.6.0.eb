@@ -12,7 +12,7 @@ It is developed taking into account the robustness requirements of running produ
 The main focus is UNIX/POSIX systems, and it has been thoroughly tested on AIX, Linux and Mac OSX. 
 Historically, the code base pre-dates and in some way can be seen as a leaner substitute for some 'Boost' libraries."""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 sources = [{
     'filename': 'eckit_%(version)s.tar.gz',

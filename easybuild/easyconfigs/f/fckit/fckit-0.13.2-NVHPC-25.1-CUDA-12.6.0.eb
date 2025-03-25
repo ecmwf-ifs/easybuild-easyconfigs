@@ -6,7 +6,7 @@ version = '0.13.2'
 homepage = 'https://software.ecmwf.int/wiki/display/FCKIT'
 description = """fcKit is a fortran interface to a subsection of ecKit ..."""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 sources = [{
     'filename': 'fckit_%(version)s.tar.gz',

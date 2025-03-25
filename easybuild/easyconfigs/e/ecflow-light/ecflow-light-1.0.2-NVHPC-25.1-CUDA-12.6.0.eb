@@ -6,7 +6,7 @@ version = '1.0.2'
 homepage = ''
 description = """ecflow, but lighter ..."""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 sources = [{
     'filename': 'ecflow-light_%(version)s.tar.gz',

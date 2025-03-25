@@ -8,8 +8,7 @@ description = """ecCodes is a package developed by ECMWF which provides an appli
  a set of tools for decoding and encoding messages in the following formats: WMO FM-92 GRIB edition 1 and edition 2,
  WMO FM-94 BUFR edition 3 and edition 4, WMO GTS abbreviated header (only decoding)."""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
-toolchainopts = {'usempi': False}
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 source_urls = ['https://github.com/ecmwf/eccodes/archive/refs/tags/']
 sources = ['%(version)s.tar.gz']

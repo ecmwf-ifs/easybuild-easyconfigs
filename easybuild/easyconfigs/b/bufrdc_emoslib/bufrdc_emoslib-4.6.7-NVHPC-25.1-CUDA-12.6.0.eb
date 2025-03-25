@@ -1,0 +1,28 @@
+easyblock = 'EcbuildMake'
+
+name = 'bufrdc_emoslib'
+version = '4.6.7'
+
+homepage = ' ... '
+description = """I don't know ..."""
+
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
+
+sources = [{
+    'filename': 'bufrdc_emoslib.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/mars',
+        'repo_name': 'bufrdc_emoslib',
+        'tag': '%(version)s',
+    },
+}]
+checksums = ['f21956221625dbad930382101142865029e296679b02e58628f0781f9b6155e0']
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+]
+
+configopts = "-DBUFR_TABLES_PATH=${INSTALL_DIR}/share/bufrdc_tables/ "
+
+moduleclass = 'phys'

@@ -31,7 +31,7 @@ dependencies = [
     ('CUDA', '12.6.0', '', SYSTEM),
 ]
 
-module_add_cuda = False
+module_add_cuda = True
 
 # specify default CUDA version that should be used by NVHPC
 # should match one of the CUDA versions that are included with this NVHPC version
@@ -59,6 +59,8 @@ default_cuda_version = '%(cudaver)s'
 #   cuda_compute_capabilities = "8.0"
 # Can also be specified on the EasyBuild command line via --cuda-compute-capabilities=8.0
 # Only single values supported, not lists of values!
+cuda_compute_capabilities = "7.0"
+
 #
 # Options to add/remove things to/from environment module (defaults shown)
 #   module_byo_compilers = False  # Remove compilers from PATH (Bring-your-own compilers)
@@ -68,6 +70,11 @@ default_cuda_version = '%(cudaver)s'
 #   module_add_nccl = False       # Add NVHPC's NCCL library
 #   module_add_nvshmem = False    # Add NVHPC's NVSHMEM library
 #   module_add_cuda = False       # Add NVHPC's bundled CUDA
+
+module_nvhpc_own_mpi = True  # Add NVHPC's own pre-compiled OpenMPI
+module_add_math_libs = True  # Add NVHPC's math libraries (which should be there from CUDA anyway)
+module_add_profilers = True  # Add NVHPC's NVIDIA Profilers
+module_add_cuda = True       # Add NVHPC's bundled CUDA
 
 # this bundle serves as a compiler-only toolchain, so it should be marked as compiler (important for HMNS)
 moduleclass = 'compiler'

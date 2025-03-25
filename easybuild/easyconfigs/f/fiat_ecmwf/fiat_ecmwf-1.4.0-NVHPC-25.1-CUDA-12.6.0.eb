@@ -6,8 +6,7 @@ version = '1.4.0'
 homepage = ''
 description = """"""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
-# compatible GCC version : 13.3.0
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
 source_urls = ['https://github.com/ecmwf-ifs/fiat/archive/refs/tags/']
 sources = ['%(version)s.tar.gz']
@@ -15,7 +14,7 @@ checksums = ['5dc5a8bcac5463690529d0d96d2c805cf9c0214d125cd483ee69d36995ff15d3']
 
 builddependencies = [
     ('CMake', '3.29.3'),
-    ('ecBuild', '3.8.5'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
 ]
 
 dependencies = [
