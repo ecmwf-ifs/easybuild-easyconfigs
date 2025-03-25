@@ -1,0 +1,54 @@
+easyblock = 'EcbuildMake'
+
+name = 'eckit'
+version = '1.28.0'
+
+homepage = 'https://software.ecmwf.int/wiki/display/ECKIT'
+description = """ecKit is a cross-platform c++ toolkit that supports development of tools and applications at ECMWF. 
+It is based on code developed over the last 20 years within the MARS software and was re-factored out to be reused 
+by other applications. 
+It provides an abstraction layer on top of the operating system, so it is easier to port code to new architectures. 
+It is developed taking into account the robustness requirements of running production systems at ECMWF. 
+The main focus is UNIX/POSIX systems, and it has been thoroughly tested on AIX, Linux and Mac OSX. 
+Historically, the code base pre-dates and in some way can be seen as a leaner substitute for some 'Boost' libraries."""
+
+toolchain = {'name': 'gompi', 'version': '2024a'}
+
+sources = [{
+    'filename': 'eckit_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/ecsdk',
+        'repo_name': 'eckit',
+        'tag': '%(version)s',
+    },
+}]
+patches = [
+    ('eckit_ncurses.patch', 0),
+]
+checksums = [
+    {'eckit_1.28.0.tar.gz': 'e5bd6ac502e6d488bb1f7936c0a0ec76bf4569ec4cfa42bb716a3ad52b8d79e3'},
+    {'eckit_ncurses.patch': '85ea42e0ec5653fae6fbeda5b69eef3865ca25feee2f7b6d973449b02ba23a7a'},
+]
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+]
+
+dependencies = [
+    ('ncurses', '6.5'),
+    ('Bison', '3.8.2'),
+    ('flex', '2.6.4'),
+]
+
+configopts = "-DENABLE_XXHASH=OFF "
+configopts += "-DENABLE_VIENNACL=OFF "
+configopts += "-DENABLE_EIGEN=OFF "
+configopts += "-DENABLE_ARMADILLO=OFF "
+configopts += "-DENABLE_CUDA=OFF "
+configopts += "-DENABLE_SANDBOX=OFF "
+configopts += "-DENABLE_MKL=OFF "
+configopts += "-DENABLE_LAPACK=OFF "
+configopts += "-DENABLE_MPI=ON "
+
+moduleclass = 'tools'
