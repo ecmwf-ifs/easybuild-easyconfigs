@@ -6,7 +6,7 @@ version = '000424'
 homepage = ' ... '
 description = """I don't know ..."""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'GCCcore', 'version': '13.3.0'}
 
 sources = [{
     'filename': 'bufrdc_tables.tar.gz',

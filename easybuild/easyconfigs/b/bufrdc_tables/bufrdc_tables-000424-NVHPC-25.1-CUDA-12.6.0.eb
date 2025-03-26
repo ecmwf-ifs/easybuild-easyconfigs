@@ -16,6 +16,7 @@ sources = [{
         'tag': '%(version)s',
     },
 }]
+checksums = ['b191757285579579ed0c03fd22f8d77ad9c6e67ca65217c3f5edab97b14c5a43']
 
 builddependencies = [
     ('CMake', '3.29.3'),

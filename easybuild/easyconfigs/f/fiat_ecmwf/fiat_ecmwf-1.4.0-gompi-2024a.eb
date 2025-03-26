@@ -6,7 +6,7 @@ version = '1.4.0'
 homepage = ''
 description = """"""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'gompi', 'version': '2024a'}
 # compatible GCC version : 13.3.0
 
 source_urls = ['https://github.com/ecmwf-ifs/fiat/archive/refs/tags/']

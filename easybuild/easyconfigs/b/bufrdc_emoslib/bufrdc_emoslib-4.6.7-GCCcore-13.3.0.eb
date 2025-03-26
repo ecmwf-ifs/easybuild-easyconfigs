@@ -6,7 +6,7 @@ version = '4.6.7'
 homepage = ' ... '
 description = """I don't know ..."""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'GCCcore', 'version': '13.3.0'}
 
 sources = [{
     'filename': 'bufrdc_emoslib.tar.gz',
@@ -16,7 +16,9 @@ sources = [{
         'tag': '%(version)s',
     },
 }]
-checksums = ['f21956221625dbad930382101142865029e296679b02e58628f0781f9b6155e0']
+patches = [
+    ('%(name)s_gnu.patch', 1),
+]
 
 builddependencies = [
     ('CMake', '3.29.3'),

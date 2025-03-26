@@ -6,7 +6,7 @@ version = '0.5.0'
 homepage = ' ... '
 description = """grib, but with an added spring"""
 
-toolchain = {'name': 'iimpi', 'version': '2024a'}
+toolchain = {'name': 'gompi', 'version': '2024a'}
 
 sources = [{
     'filename': 'gribjump_%(version)s.tar.gz',
