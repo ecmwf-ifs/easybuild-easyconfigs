@@ -20,10 +20,9 @@ checksums = ['f21956221625dbad930382101142865029e296679b02e58628f0781f9b6155e0']
 
 builddependencies = [
     ('CMake', '3.29.3'),
-    ('ecBuild', '3.8.5'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
 ]
 
 configopts = "-DBUFR_TABLES_PATH=${INSTALL_DIR}/share/bufrdc_tables/ "
-
 
 moduleclass = 'phys'

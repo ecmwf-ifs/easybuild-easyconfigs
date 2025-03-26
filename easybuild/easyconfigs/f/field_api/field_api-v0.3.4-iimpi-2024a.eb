@@ -26,7 +26,6 @@ dependencies = [
 
 configopts = "-DENABLE_ACC=OFF -DENABLE_CUDA=OFF "
 
-
 # field_api does not install a bin folder, so override default sanity check
 sanity_check_paths = {
     'files': ["lib/libfield_api_sp.so"],

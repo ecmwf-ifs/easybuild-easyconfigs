@@ -20,7 +20,7 @@ checksums = ['7ef85faf405b52778c9c30c5987c4a30ddaa93823a5c7817c8aad28603c3d5c5']
 
 builddependencies = [
     ('CMake', '3.29.3'),
-    ('ecBuild', '3.8.5'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
     ('metkit', '1.11.19'),
 ]
 
