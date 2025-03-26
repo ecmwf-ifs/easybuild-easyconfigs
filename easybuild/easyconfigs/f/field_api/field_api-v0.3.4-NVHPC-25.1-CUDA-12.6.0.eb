@@ -3,8 +3,8 @@ easyblock = 'EcbuildMake'
 name = 'field_api'
 version = 'v0.3.4'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/ecmwf-ifs/field_api/'
+description = """  """
 
 toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
 
@@ -24,7 +24,6 @@ dependencies = [
 ]
 
 configopts = "-DENABLE_ACC=OFF -DENABLE_CUDA=OFF "
-
 
 # field_api does not install a bin folder, so override default sanity check
 sanity_check_paths = {
