@@ -1,0 +1,14 @@
+diff -ruN bufrdc_emoslib/CMakeLists.txt bufrdc_emoslib-patched/CMakeLists.txt
+--- bufrdc_emoslib/CMakeLists.txt	2025-01-29 16:58:39.000000000 +0000
++++ bufrdc_emoslib-patched/CMakeLists.txt	2025-02-11 12:51:09.525673368 +0000
+@@ -19,8 +19,8 @@
+     endif()
+ 
+     ecbuild_add_fortran_flags("-fdefault-real-8 -fdefault-double-8 -ffixed-line-length-none -fcray-pointer -fno-second-underscore")
+-    ecbuild_add_fortran_flags("-g -O2 -mtune=native" BUILD RELEASE)
+-    ecbuild_add_fortran_flags("-g -O2 -mtune=native" BUILD RELWITHDEBINFO)
++    ecbuild_add_fortran_flags("-O2 -mtune=native" BUILD RELEASE)
++    ecbuild_add_fortran_flags("-O2 -mtune=native" BUILD RELWITHDEBINFO)
+     ecbuild_remove_fortran_flags("-fcheck=bounds" BUILD DEBUG)
+ 
+ elseif(CMAKE_Fortran_COMPILER_ID MATCHES "Intel")
