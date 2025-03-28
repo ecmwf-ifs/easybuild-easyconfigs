@@ -1,0 +1,38 @@
+easyblock = 'EcbuildMake'
+
+name = 'ecTrans'
+version = '1.5.1'
+
+homepage = 'https://github.com/ecmwf-ifs/ectrans'
+description = """ecTrans is the global spherical Harmonics transforms library, 
+extracted from the IFS. It contains both CPU and GPU (Nvidia) code-paths. 
+The CPU version uses a hybrid of MPI and OpenMP parallelisation strategies, 
+while the GPU version combines MPI and OpenACC."""
+
+toolchain = {'name': 'iimpi', 'version': '2024a'}
+# compatible GCC version : 13.3.0
+
+source_urls = ['https://github.com/ecmwf-ifs/ectrans/archive/refs/tags/']
+sources = ['%(version)s.tar.gz']
+patches = [
+    ('ecTrans_llvmflags.patch', 0),
+]
+checksums = [
+    {'1.5.1.tar.gz': '4ec216ae59476af1642281e95ee718074c7a88bd18232f60d1654fb719ae60ac'},
+    {'ecTrans_llvmflags.patch': '83d512acf0bd9fd7be494ad413eeca2b3215127de56e8ee07de5d12c658489d9'},
+]
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5', '', SYSTEM),
+]
+
+dependencies = [
+    ('imkl', '2024.2.0', '', SYSTEM),
+    ('fiat_ecmwf', '1.4.0'),
+]
+
+# CPU only for this recipe
+configopts = "-DENABLE_ACC=OFF -DENABLE_CUDA=OFF "
+
+moduleclass = 'tools'
