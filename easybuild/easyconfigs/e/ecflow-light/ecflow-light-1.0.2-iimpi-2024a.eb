@@ -16,6 +16,11 @@ sources = [{
         'tag': '%(version)s',
     },
 }]
+
+patches = [
+    ('ecflow-light_installmodule.patch', 1),
+]
+
 checksums = ['e923deb08e8486d4ab72de7b0a0f06251cf15f22fa68c34321fa93e2b3332d63']
 
 builddependencies = [
