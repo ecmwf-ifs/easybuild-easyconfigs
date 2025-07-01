@@ -1,0 +1,57 @@
+diff -ruN src/util/abor1_ftn.F90 src/util/abor1_ftn.F90
+--- src/util/abor1_ftn.F90	2025-02-03 14:35:00.000000000 +0000
++++ src/util/abor1_ftn.F90	2025-02-03 16:15:12.696709842 +0000
+@@ -11,7 +11,7 @@
+ !> Prints an error message and stops the execution.
+ 
+ subroutine abor1_ftn(cderror)
+-use, intrinsic :: iso_c_binding
++use, intrinsic :: iso_c_binding, only : c_char
+ use string_f_c_mod
+ implicit none
+ 
+@@ -21,7 +21,7 @@
+ 
+ interface
+   subroutine abor1_cpp(str) BIND(C,NAME='abor1_cpp_')
+-    use, intrinsic :: iso_c_binding
++    use, intrinsic :: iso_c_binding, only : c_char
+     implicit none
+     character(kind=c_char, len=1), intent(in) :: str(*)
+   end subroutine abor1_cpp
+diff -ruN src/util/config_mod.F90 src/util/config_mod.F90
+--- src/util/config_mod.F90	2025-02-03 14:35:00.000000000 +0000
++++ src/util/config_mod.F90	2025-02-03 16:19:29.161402064 +0000
+@@ -10,7 +10,7 @@
+ 
+ module config_mod
+ 
+-use, intrinsic :: iso_c_binding
++use, intrinsic :: iso_c_binding, only : c_char, c_double, c_float, c_size_t, c_int32_t, c_ptr
+ use string_f_c_mod
+ use kinds
+ 
+diff -ruN src/util/datetime_mod.F90 src/util/datetime_mod.F90
+--- src/util/datetime_mod.F90	2025-02-03 14:35:00.000000000 +0000
++++ src/util/datetime_mod.F90	2025-02-03 16:21:46.457811386 +0000
+@@ -10,7 +10,7 @@
+ 
+ module datetime_mod
+ 
+-use, intrinsic :: iso_c_binding
++use, intrinsic :: iso_c_binding, only : c_null_ptr, c_char, c_int, c_int64_t, c_ptr, c_associated
+ use string_f_c_mod  ! TODO: replace with fckit equivalent (in fckit_c_interop_module)
+ use duration_mod
+ 
+diff -ruN src/util/duration_mod.F90 src/util/duration_mod.F90
+--- src/util/duration_mod.F90	2025-02-03 14:35:00.000000000 +0000
++++ src/util/duration_mod.F90	2025-02-03 16:22:24.520747788 +0000
+@@ -10,7 +10,7 @@
+ 
+ module duration_mod
+ 
+-use, intrinsic :: iso_c_binding
++use, intrinsic :: iso_c_binding, only : c_char, c_int64_t, c_ptr
+ use string_f_c_mod
+ 
+ implicit none

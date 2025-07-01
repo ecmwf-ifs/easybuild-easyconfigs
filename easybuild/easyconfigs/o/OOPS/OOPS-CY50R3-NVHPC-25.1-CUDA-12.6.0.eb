@@ -1,0 +1,46 @@
+easyblock = 'EcbuildMake'
+
+name = 'OOPS'
+version = 'CY50R3'
+
+homepage = 'https://git.ecmwf.int/projects/OOPS/repos/oops/browse'
+description = """Object Oriented Prediction System (OOPS) is an ECMWF library for generic 
+variational data assimilation algorithms. The library was designed with the aim of 
+abstracting the implementation of variational algorithms from implementation of particular 
+models. This separation of concerns allows for easier development, prototyping and testing 
+of new algorithms.
+
+OOPS is written in C++ and comes along with a unit testing environment and two toy models: 
+Lorenz95 (written in C++) and Quasi-geostrophic (QG) model (written in Fortran)."""
+
+toolchain = {'name': 'NVHPC', 'version': '25.1-CUDA-12.6.0'}
+
+sources = [{
+    'filename': 'OOPS_%(version)s.tar.gz',
+    'git_config': {
+        'url': 'ssh://git@git.ecmwf.int/~dipg',
+        'repo_name': 'oops',
+        'commit': '20596979fce4c3',
+    },
+}]
+
+patches = [
+    ('OOPS_fcstring.patch', 0),
+]
+
+builddependencies = [
+    ('CMake', '3.29.3'),
+    ('ecBuild', '3.8.5'),
+]
+
+dependencies = [
+    ('atlas_ecmwf', '0.39.0'),
+    ('eckit', '1.28.0'),
+    ('fckit', '0.13.2'),
+    ('Eigen', '3.4.0'),
+    ('imkl', '2024.0.0', '', SYSTEM),
+    ('netCDF', '4.9.2'),
+    ('netCDF-Fortran', '4.6.1'),
+]
+
+moduleclass = 'tools'
