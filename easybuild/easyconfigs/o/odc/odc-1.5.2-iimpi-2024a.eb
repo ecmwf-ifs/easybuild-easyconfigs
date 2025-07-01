@@ -33,6 +33,8 @@ dependencies = [
     ('eckit', '1.28.0'),
 ]
 
+configopts = "-DENABLE_FORTRAN=ON "
+
 modextravars = {
     'ODC_INCLUDE_DIRS': '%(installdir)s/include',
     'ODC_LIBRARIES': 'odccore;fodc;odctools;odctest;odc_fortran',

@@ -1,0 +1,11 @@
+diff -ruN oops.orig/src/CMakeLists.txt oops/src/CMakeLists.txt
+--- oops.orig/src/CMakeLists.txt	2025-06-23 13:25:26.049537662 +0000
++++ oops/src/CMakeLists.txt	2025-06-23 13:25:54.023409237 +0000
+@@ -405,6 +405,7 @@
+                                      $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+                                      $<BUILD_INTERFACE:${CMAKE_Fortran_MODULE_DIRECTORY}>
+                                      $<INSTALL_INTERFACE:include>
++                                     $<INSTALL_INTERFACE:include/util>
+                                      $<INSTALL_INTERFACE:${Fortran_MODULE_INSTALL_DIR}>
+                      INSTALL_HEADERS LISTED
+                      LINKER_LANGUAGE ${OOPS_LINKER_LANGUAGE}

@@ -1,0 +1,13 @@
+diff -ruN ecflow-light.orig/src/libecflow_lightf/CMakeLists.txt ecflow-light/src/libecflow_lightf/CMakeLists.txt
+--- ecflow-light.orig/src/libecflow_lightf/CMakeLists.txt	2025-06-05 17:15:21.712684744 +0000
++++ ecflow-light/src/libecflow_lightf/CMakeLists.txt	2025-06-05 17:20:20.397659476 +0000
+@@ -31,8 +31,9 @@
+     ecflow_light
+ )
+
++target_include_directories( ${TARGET} PUBLIC $<INSTALL_INTERFACE:module/ecflow_light> )
+ if(ECBUILD_INSTALL_FORTRAN_MODULES)
+ install( DIRECTORY ${CMAKE_Fortran_MODULE_DIRECTORY}/${CMAKE_CFG_INTDIR}
+   DESTINATION module/ecflow_light
+   COMPONENT modules )
+ endif()
